@@ -12,7 +12,7 @@ Furthermore, our objective extends to building a ML model that will look through
 
 ### Dataset
 
-Our dataset consists of two different types of data, the generated reports and the MRI Dicom image. The former has the following seven features: age, location, ethnicity, study date, PSA (Prostate-specific antigen) - a protein used for screening prostate cancer, PI-RAD score - a score indicating how likely an area is cancerous, and MR Model & Brand. Finally, it contains an outcome (is it a tumour) (low, moderate and high). 
+Our dataset consists of two different types of data, the generated reports and the MRI Dicom image. The former has the following seven features: age, location, ethnicity, study date, PSA (Prostate-specific antigen) - a protein used for screening prostate cancer, PI-RAD score - a score indicating how likely an area is cancerous, and MR Model & Brand [1]. Finally, it contains an outcome (is it a tumour) (low, moderate and high). 
 
 The latter contains the MRI of the prostate, and patient metadata: name, sex, age, weight (kg), study date and time, study modality, study description, series date and time and series description and other metadata (around 100) that covers other information such as: manufacturer, software version and so on.
 
