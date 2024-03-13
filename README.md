@@ -32,9 +32,10 @@ contains the MRI of the prostate, and patient metadata: name, sex, age, weight (
 
 ### Research Question
 
-Given a set of input text, are we able to implement a robust anonymization pipeline, involving the anonymization of the data and a NLP classifier to determine whether the was successfully anonymized or not?
+Given a set of input text, are we able to implement a robust anonymization pipeline, involving the anonymization of the data, and a classifier, to determine whether the data was successfully anonymized or not?
+
 #### Data Anonymization
-This step involves the anonymization of an input text.  The main tool we will be employing to anonymize the data is the spaCy open-source NLP library in conjunction with Presidio. Presidio is an open-source, Microsoft developed, data anonymization library that makes use of Regex, NLP, pattern validation and more to process and anonymize data. We will be using it with spaCy to anonymize the input text before it is passed to the NLP classifier. 
+This step involves the anonymization of an input text.  The main tool we will be employing to anonymize the data is the spaCy open-source NLP library in conjunction with Presidio. Presidio is an open-source, Microsoft developed, data anonymization library that makes use of Regex, NLP, pattern validation and more to process and anonymize data. We will be using it with spaCy to anonymize the input text before it is passed to the classifier. 
 
 #### Classification Models 
 
