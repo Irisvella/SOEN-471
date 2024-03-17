@@ -13,7 +13,7 @@ restricted_zip_codes = [
     "203", "830", "893", "556", "831"
 ]
 
-# Helper function to generate different types of personal information
+# Helper function
 def generate_personal_info(info_type):
     if info_type == 'name':
         return fake.name()
@@ -23,13 +23,12 @@ def generate_personal_info(info_type):
         return fake.phone_number()
     # Extend with more types if needed
 
-# Function to insert a mistake with more variability and realism
+# Function to insert a mistake into a field
 def insert_mistake(field):
     mistake_types = ['name', 'email', 'phone_number']  # Extendable list
     mistake_type = random.choice(mistake_types)
     mistake_content = generate_personal_info(mistake_type)
 
-    # Varying the length and subtlety of the mistake
     if random.choice([True, False]):  # 50% chance to append or prepend the mistake
         return f"{mistake_content} {field}"
     else:
@@ -40,9 +39,9 @@ def check_for_restricted_zip(record):
     for zip_code in restricted_zip_codes:
         if zip_code in record["Location"]:
             record["Contains Personal Information"] = "Yes"
-            break  # No need to check further if a match is found
+            break
 
-# Generate the data and inserting a mistake with improved realism
+# Generate the data
 def generate_corrected_dataset(num_records):
     data = []
 
@@ -62,8 +61,8 @@ def generate_corrected_dataset(num_records):
             "Contains Personal Information": "No"
         }
         
-        # Simulate the chance of identifiable information slipping into any attribute with more complexity
-        if fake.boolean(chance_of_getting_true=20):  # Corrected to 20%
+        # Simulate the chance of identifiable information slipping into any attribute
+        if fake.boolean(chance_of_getting_true=20):
             chosen_field = random.choice(["TumorMarkersResults", "Conclusion"])
             record[chosen_field] = insert_mistake(record[chosen_field])
             record["Contains Personal Information"] = "Yes"
@@ -74,6 +73,5 @@ def generate_corrected_dataset(num_records):
         data.append(record)
     return pd.DataFrame(data)
 
-# Generate a corrected dataset with 100 records
 corrected_df = generate_corrected_dataset(100)
 print(corrected_df.head())
